@@ -19,5 +19,5 @@
 > 새로운 사전을 경험해 보세요.
 
 ## How to Get Started ##
-> 인터넷 브라우저에서 http://localhost:3000 을 입력하면 됩니다.
+> 인터넷 브라우저에서 http://localhost:8080 을 입력하면 됩니다.
 

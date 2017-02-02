@@ -1,7 +1,6 @@
 angular.module('DicService', [])
 .factory('Dic', function($http) {
 
-  console.log('DicService');
   var upload = function(text){
   	return $http({
       method: 'POST',

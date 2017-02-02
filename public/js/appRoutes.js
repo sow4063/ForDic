@@ -8,19 +8,11 @@ angular.module('appRoutes', [])
 			controller: 'MainController'
 		})
 
-		.when('/nerds', {
-			templateUrl: 'views/nerd.html',
-			controller: 'NerdController'
-		})
-
-		.when('/geeks', {
-			templateUrl: 'views/geek.html',
-			controller: 'GeekController'	
-		})
 		.when('/dics', {
 			templateUrl: 'views/dics.html',
 			controller: 'DicController'	
 		})
+		
 		.otherwise('/');
 
 	$locationProvider.html5Mode(true);

@@ -1,5 +1,6 @@
-<div class="jumbotron text-center">
-	<h1>Home Page 4 Life</h1>
-
-	<p>{{ tagline }}</p>
+<div>
+  <form ng-submit="search(word)">
+	  <input type="text" ng-model="text" name="text" />
+	  <input type="submit" id="submit" value="search" />
+  </form>	
 </div>

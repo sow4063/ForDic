@@ -1,2 +1,2 @@
-angular.module('sampleApp', 
-	['ngRoute', 'appRoutes', 'MainCtrl', 'DicCtrl','DicService']);
+angular.module('ForDicApp', 
+	['ngRoute', 'appRoutes', 'WordsCtrl', 'WordsService', 'DicCtrl','DicService']);

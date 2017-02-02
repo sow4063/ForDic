@@ -4,8 +4,8 @@ angular.module('appRoutes', [])
 	$routeProvider
 		// home page
 		.when('/', {
-			templateUrl: 'views/home.html',
-			controller: 'MainController'
+			templateUrl: 'views/Words.html',
+			controller: 'WordsController'
 		})
 
 		.when('/dics', {

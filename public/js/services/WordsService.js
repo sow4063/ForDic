@@ -2,10 +2,10 @@ angular.module('WordsService', [])
 .factory('Words', function($http) {
 
   var search = function(word){
-  	return $http({
+    return $http({
       method: 'GET',
       url: '/search',
-      data: { keyword: word }
+      params: {keyword: word}
     })
     .then(function (resp) {
       return resp.data;

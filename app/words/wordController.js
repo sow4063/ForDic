@@ -9,6 +9,28 @@ var removeWords = Q.nbind(Word.remove, Word);
 
 module.exports = {
 
+	searchWords: function(req, res, next){
+
+    console.log('query.keyowrd = ', req.query.keyword );
+
+		findWord( {'korean': req.query.keyword} )
+      .then(function(word) {
+      	if( word ) {
+      		console.log('word already exist!');
+          res.send(word);
+        } 
+        else {
+          // make a new word if not one
+          res.json( 'no word is matched.' );
+        }
+      	
+      })
+      .fail(function (error) {
+      	// respond to the client
+		    res.json( error );
+      });
+	},
+
 	newWords: function (req, res, next) {
 
     var fileName = req.body.fileName;

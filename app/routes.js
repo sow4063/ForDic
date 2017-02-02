@@ -5,6 +5,7 @@ module.exports = function(app) {
 	// server routes ===========================================================
 	// handle things like api calls
 	// authentication routes
+	app.get('/search', wordController.searchWords);
 	app.post('/file', wordController.newWords);
 
 	// frontend routes =========================================================

@@ -1,7 +1,7 @@
-angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
+angular.module('appRoutes', [])
+.config(['$routeProvider', '$locationProvider', function($routeProvider, $locationProvider) {
 
 	$routeProvider
-
 		// home page
 		.when('/', {
 			templateUrl: 'views/home.html',
@@ -16,7 +16,12 @@ angular.module('appRoutes', []).config(['$routeProvider', '$locationProvider', f
 		.when('/geeks', {
 			templateUrl: 'views/geek.html',
 			controller: 'GeekController'	
-		});
+		})
+		.when('/dics', {
+			templateUrl: 'views/dics.html',
+			controller: 'DicController'	
+		})
+		.otherwise('/');
 
 	$locationProvider.html5Mode(true);
 

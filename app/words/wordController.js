@@ -17,17 +17,15 @@ module.exports = {
       .then(function(word) {
       	if( word ) {
       		console.log('word already exist!');
-          res.send(word);
+          res.send( [word] );
         } 
         else {
-          // make a new word if not one
           res.json( 'no word is matched.' );
         }
       	
       })
       .fail(function (error) {
-      	// respond to the client
-		    res.json( error );
+      	res.json( error );
       });
 	},
 

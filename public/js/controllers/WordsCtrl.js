@@ -1,5 +1,14 @@
-angular.module('WordsCtrl', []).controller('WordsController', function($scope, Words) {
+angular.module('WordsCtrl', [])
+.controller('WordsController', function($scope, Words) {
 
-	$scope.search = Words.search;
+  $scope.words = [];
+
+	$scope.search = function (text) {
+		Words.search(text)
+				.then(function (data) {
+					$scope.words = data;
+				});
+	}
+
 
 });

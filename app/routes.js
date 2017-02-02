@@ -18,11 +18,11 @@ module.exports = function(app) {
 
 		  for(let i = 0; i < words.length; i++ ){
 		  	var dic = words[i].split('#');
-		    word['kor'] = dic[0];  
-		    word['nat'] = dic[1];
-		    word['def'] = dic[2];
-		    word['exa'] = dic[3];
-		    word['cat'] = dic[4];
+		    word['korean'] = dic[0];  
+		    word['origin'] = dic[1];
+		    word['definition'] = dic[2];
+		    word['example'] = dic[3];
+		    word['category'] = dic[4];
 		  }
 
 		  console.log('the last line = ', word );

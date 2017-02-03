@@ -39,11 +39,13 @@ module.exports = {
 		  var words = data.split('\n');
 		  console.log('readFile length = ', words.length );
 
-		  var newWord = {};
-		  var wordArr = [];
+		  
+		  var wordArr = new Array(words.length);
 
 		  for(let i = 0; i < words.length; i++ ){
 		  	var dic = words[i].split('#');
+
+		  	let newWord = {};
 
 		    newWord['korean'] = dic[0];  		  	
         newWord['origin'] = dic[1];
@@ -51,7 +53,7 @@ module.exports = {
 		    newWord['example'] = dic[3];
 		    newWord['category'] = dic[4];
 
-		    wordArr.push(newWord);
+		    wordArr[i] = newWord;
 		  }
 		  
 		  console.log('the last line = ', wordArr.length );

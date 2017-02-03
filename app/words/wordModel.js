@@ -20,7 +20,7 @@ var WordSchema = new mongoose.Schema({
 		type : String, default: ''
 	},
 	
-	cateogry : {
+	category : {
 		type : String, default: ''
 	}
 });

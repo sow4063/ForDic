@@ -3,7 +3,7 @@ var Q = require('q');
 var Word = require('./wordModel.js');
 
 // Promisify a few mongoose methods with the `q` promise library
-var findWord = Q.nbind(Word.findOne, Word);
+var findWords = Q.nbind(Word.find, Word);
 var createWord = Q.nbind(Word.create, Word);
 var removeWords = Q.nbind(Word.remove, Word);
 
@@ -11,13 +11,13 @@ module.exports = {
 
 	searchWords: function(req, res, next){
 
-    console.log('query.keyowrd = ', req.query.keyword );
+    console.log('keyword = ', req.query.keyword );
 
-		findWord( {'korean': req.query.keyword} )
-      .then(function(word) {
-      	if( word ) {
+		findWords( { "korean": { "$regex": req.query.keyword } } )
+      .then(function(words) {
+      	if( words.length ) {
       		console.log('word already exist!');
-          res.send( [word] );
+          res.send( words );
         } 
         else {
           res.json( 'no word is matched.' );

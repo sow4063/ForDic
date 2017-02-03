@@ -1,10 +1,12 @@
 <div>
-  <form ng-submit="upload(text)">
+  <form ng-disable="busy" ng-submit="upload(text)">
 	  <input type="text" ng-model="text" name="text" />
 	  <input type="submit" id="submit" value="upload" />
   </form>	
 
-  <div ng-if="count > 0" class="mdl-card__supporting-text">   
+  <div ng-show="busy">Uploading...</div>
+
+  <div ng-show="!busy" ng-if="count > 0" class="mdl-card__supporting-text">   
       {{count}} 건을 입력했습니다.
     </div>
 </div>

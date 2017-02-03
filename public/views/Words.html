@@ -1,23 +1,38 @@
 <div>
   <form ng-submit="search(text)">
 	  <input type="text" ng-model="text" name="text" />
-	  <input type="submit" id="submit" value="search" />
+	  <input type="submit" id="submit" value="검색" />
   </form>	
 
   <div class="words" >
+
+    <div ng-if="words.length > 0" class="mdl-card__supporting-text">   
+      {{words.length}} 건의 검색 결과가 있습니다.
+    </div>
 		
 		<div class="word" ng-if="words.length > 0" ng-repeat="word in words">
-			<div class="info">
+			<!-- <div class="result">
 		    <div class="korean">{{word.korean}}({{word.origin}})</div>
 		    <div class="definition">{{word.definition}}</div>
 		    <div class="example">{{word.example}}</div>
 		    <div class="category">{{word.category}}</div>
-		  </div>		  	
-	  
+		  </div> -->
+
+	    <section class=" result section--center mdl-grid mdl-shadow--2dp">
+        <div class="mdl-card mdl-cell mdl-cell--12-col">
+          <div class="mdl-card__supporting-text">
+            <h4>{{word.korean}} {{word.origin}}</h4>
+          </div>
+          <div class="mdl-card__supporting-text"> 설명 : {{word.definition}}</div>
+		      <div class="mdl-card__supporting-text">예문 : {{word.example}}</div>
+		      <div class="mdl-card__supporting-text">분류 : {{word.category}}</div>
+        </div>
+      </section>
+
 		</div>
 
 		<div class="word" ng-if="words.length === 0">
-			<div class="info">
+			<div class="noresult">
 		    <div>검색 결과가 없습니다.</div>
 		  </div>		  	
 	  

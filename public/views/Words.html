@@ -4,6 +4,11 @@
 	  <input type="submit" id="submit" value="검색" />
   </form>	
 
+  <input type="radio" ng-model="value" ng-checked="true" value="korean" ng-change='setWhere(value)'>
+    한국어
+  <input type="radio" ng-model="value" value="origin" ng-change='setWhere(value)'>
+    원어
+
   <div class="words" >
 
     <div ng-if="words.length > 0" class="mdl-card__supporting-text">   

@@ -12,8 +12,20 @@ module.exports = {
 	searchWords: function(req, res, next){
 
     console.log('keyword = ', req.query.keyword );
+    console.log('condition = ', req.query.condition );
 
-		findWords( { "korean": { "$regex": req.query.keyword } } )
+    let query = {};
+
+    if( req.query.condition === 'korean') {
+      query['korean'] = { "$regex": req.query.keyword }
+    }
+    else if( req.query.condition === 'origin') {
+      query['origin'] = { "$regex": req.query.keyword }
+    }
+
+		//findWords( { "korean": { "$regex": req.query.keyword } } )
+    //findWords( { req.query.condition: { "$regex": req.query.keyword } } )
+    findWords( query )
       .then(function(words) {
       	if( words.length ) {
       		console.log('word already exist!');

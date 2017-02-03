@@ -20,7 +20,7 @@ module.exports = {
           res.send( words );
         } 
         else {
-          res.json( 'no word is matched.' );
+          res.json( [] );
         }
       	
       })

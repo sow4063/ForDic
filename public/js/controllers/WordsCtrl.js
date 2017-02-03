@@ -5,10 +5,9 @@ angular.module('WordsCtrl', [])
 
 	$scope.search = function (text) {
 		Words.search(text)
-				.then(function (data) {
-					$scope.words = data;
-				});
+			.then(function (data) {
+				$scope.words = data;
+			});
 	}
 
-
-});;
+});

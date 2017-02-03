@@ -6,12 +6,19 @@
 
   <div class="words" >
 		
-		<div class="word" ng-repeat="word in words">
+		<div class="word" ng-if="words.length > 0" ng-repeat="word in words">
 			<div class="info">
 		    <div class="korean">{{word.korean}}({{word.origin}})</div>
 		    <div class="definition">{{word.definition}}</div>
 		    <div class="example">{{word.example}}</div>
 		    <div class="category">{{word.category}}</div>
+		  </div>		  	
+	  
+		</div>
+
+		<div class="word" ng-if="words.length === 0">
+			<div class="info">
+		    <div>검색 결과가 없습니다.</div>
 		  </div>		  	
 	  
 		</div>

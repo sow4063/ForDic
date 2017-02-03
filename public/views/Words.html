@@ -1,5 +1,5 @@
 <div>
-  <form ng-submit="search(text)">
+  <form ng-disabled="busy" ng-submit="search(text)"  >
 	  <input type="text" ng-model="text" name="text" />
 	  <input type="submit" id="submit" value="검색" />
   </form>	
@@ -8,7 +8,9 @@
   <input type="radio" ng-model="value" value="origin" ng-change='setWhere(value)'>원어
   <input type="radio" ng-model="value" value="category" ng-change='setWhere(value)'>분류
 
-  <div class="words" >
+  <div ng-show="busy">Loading...</div>
+
+  <div ng-show="!busy" class="words" >
 
     <div ng-if="words.length > 0" class="mdl-card__supporting-text">   
       {{words.length}} 건의 검색 결과가 있습니다.

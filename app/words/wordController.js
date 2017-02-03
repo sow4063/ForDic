@@ -22,6 +22,9 @@ module.exports = {
     else if( req.query.condition === 'origin') {
       query['origin'] = { "$regex": req.query.keyword }
     }
+    else if( req.query.condition === 'category') {
+      query['category'] = { "$regex": req.query.keyword }
+    }
 
 		findWords( query )
       .then(function(words) {

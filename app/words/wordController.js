@@ -23,9 +23,7 @@ module.exports = {
       query['origin'] = { "$regex": req.query.keyword }
     }
 
-		//findWords( { "korean": { "$regex": req.query.keyword } } )
-    //findWords( { req.query.condition: { "$regex": req.query.keyword } } )
-    findWords( query )
+		findWords( query )
       .then(function(words) {
       	if( words.length ) {
       		console.log('word already exist!');
@@ -50,7 +48,6 @@ module.exports = {
 		fs.readFile(fileName, 'utf8', function(err, data){
 		  var words = data.split('\n');
 		  console.log('readFile length = ', words.length );
-
 		  
 		  var wordArr = new Array(words.length);
 
@@ -72,8 +69,6 @@ module.exports = {
 
       removeWords({})
         .then(function(result){
-          console.log(result);
-          
           createWord( wordArr )
 			    .then(function(result){
 	          res.json( result.length );
@@ -86,24 +81,6 @@ module.exports = {
         	res.json( error );
         });
 		  
-
-		  // findWord({korean:newWord.korean})
-    //   .then(function(word) {
-    //   	if(word) {
-    //   		console.log('word already exist!');
-    //       res.json('word already exist!');
-    //     } 
-    //     else {
-    //       // make a new word if not one
-    //       res.json( createWord(newWord) );
-    //     }
-      	
-    //   })
-    //   .fail(function (error) {
-    //   	// respond to the client
-		  //   res.json( error );
-    //   });
-
 		});  
     
   }

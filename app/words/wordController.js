@@ -22,6 +22,9 @@ module.exports = {
     else if( req.query.condition === 'origin') {
       query['origin'] = { "$regex": req.query.keyword }
     }
+    else if( req.query.condition === 'definition') {
+      query['definition'] = { "$regex": req.query.keyword }
+    }
     else if( req.query.condition === 'category') {
       query['category'] = { "$regex": req.query.keyword }
     }
@@ -52,9 +55,10 @@ module.exports = {
 		  var words = data.split('\n');
 		  console.log('readFile length = ', words.length );
 		  
-		  var wordArr = new Array(words.length);
-
-		  for(let i = 0; i < words.length; i++ ){
+      var length = words.length;
+		  var wordArr = new Array(length);
+      
+		  for( let i = 0; i < length; i++ ){
 		  	var dic = words[i].split('#');
 
 		  	let newWord = {};
@@ -68,7 +72,7 @@ module.exports = {
 		    wordArr[i] = newWord;
 		  }
 		  
-		  console.log('the last line = ', wordArr.length );
+		  console.log('the last line = ', length );
 
       removeWords({})
         .then(function(result){

@@ -25,6 +25,9 @@ module.exports = {
     else if( req.query.condition === 'definition') {
       query['definition'] = { "$regex": req.query.keyword }
     }
+    else if( req.query.condition === 'example') {
+      query['example'] = { "$regex": req.query.keyword }
+    }
     else if( req.query.condition === 'category') {
       query['category'] = { "$regex": req.query.keyword }
     }

@@ -7,6 +7,7 @@ module.exports = function(app) {
 	// authentication routes
 	app.get('/search', wordController.searchWords);
 	app.post('/file', wordController.newWords);
+	app.post('/insert', wordController.insertWords);
 
 	// frontend routes =========================================================
 	// route to handle all angular requests

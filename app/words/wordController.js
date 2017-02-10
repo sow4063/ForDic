@@ -48,6 +48,47 @@ module.exports = {
       });
 	},
 
+  insertWords: function (req, res, next) {
+
+    var fileName = req.body.fileName;
+    
+    // read the data from the file
+    fs.readFile(fileName, 'utf8', function(err, data){
+
+      var words = data.split('\n');
+      console.log('readFile length = ', words.length );
+      
+      var length = words.length;
+      var wordArr = new Array(length);
+      
+      for( let i = 0; i < length; i++ ){
+        var dic = words[i].split('#');
+
+        let newWord = {};
+
+        newWord['korean'] = dic[0];         
+        newWord['origin'] = dic[1];
+        newWord['definition'] = dic[2];
+        newWord['example'] = dic[3];
+        newWord['category'] = dic[4];
+
+        wordArr[i] = newWord;
+      }
+      
+      console.log('the word length = ', length );
+
+      createWord( wordArr )
+        .then(function(result){
+          res.json( result.length );
+        })
+        .fail(function(err){
+          res.json( error );
+        });
+      
+    });  
+    
+  },
+
 	newWords: function (req, res, next) {
 
     var fileName = req.body.fileName;

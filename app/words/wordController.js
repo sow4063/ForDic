@@ -48,6 +48,16 @@ module.exports = {
       });
 	},
 
+  removeWord: function(req, res, next){
+    removeWords({korean: req.query.keyword})
+      .then(function(result){
+        res.json( result );
+      })
+      .fail(function(err){
+        res.json( error );
+      });
+  },
+
   insertWords: function (req, res, next) {
 
     var fileName = req.body.fileName;

@@ -35,7 +35,7 @@ module.exports = {
 		findWords( query )
       .then(function(words) {
       	if( words.length ) {
-      		console.log('word already exist!');
+      		console.log('word already exist! ::: length = ', words.length);
           res.send( words );
         } 
         else {

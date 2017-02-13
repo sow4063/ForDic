@@ -24,7 +24,7 @@ describe('', function() {
     mongoose.connect(db.url, done);
   });
 
-  describe('word creation: ', function() {
+  describe('word query: ', function() {
 
     it('Only valid urls, returning a 404 - Not found for invalid urls', function(done) {
       request(app)
@@ -35,6 +35,19 @@ describe('', function() {
         .end(done);
     });
 
-  });
+    it('Fetches the word', function(done) {
+      var query = {'keyword': '루', 'condition': 'korean'};
+      request(app)
+        .get('/search')
+        .send(query)
+        .expect(200)
+        .expect(function(res) {
+          console.log('res ==> ', res.body.length);
+          expect(res.body.length).to.be.greaterThan(1);
+        })
+        .end(done);
+    });
+
+  }); // word query
 
 });

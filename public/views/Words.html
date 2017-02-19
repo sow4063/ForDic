@@ -10,7 +10,11 @@
   <input type="radio" ng-model="value" value="example" ng-change='setWhere(value)'>예문
   <input type="radio" ng-model="value" value="category" ng-change='setWhere(value)'>분류
 
-  <div ng-show="busy">검색중...</div>
+  <div ng-show="busy">검색중...
+    <div layout="row" layout-sm="column" layout-align="space-around">
+      <md-progress-circular md-mode="indeterminate"></md-progress-circular>
+    </div>
+  </div>
 
   <div ng-show="!busy" class="words" >
 

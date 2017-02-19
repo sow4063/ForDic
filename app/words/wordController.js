@@ -39,6 +39,7 @@ module.exports = {
           res.send( words );
         } 
         else {
+          console.log('the word does not exist');
           res.json( [] );
         }
       	

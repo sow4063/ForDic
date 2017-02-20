@@ -52,9 +52,11 @@ module.exports = {
   removeWord: function(req, res, next){
     removeWords({korean: req.query.keyword})
       .then(function(result){
+        console.log('removeWord OK.');
         res.json( result );
       })
       .fail(function(err){
+        console.log('removeWord NG.', err);
         res.json( error );
       });
   },

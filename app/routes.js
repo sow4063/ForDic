@@ -1,13 +1,13 @@
-var wordController = require('./words/wordController.js');
+var userCodeController = require('./userCode/userCodeController.js');
 
 module.exports = function(app) {
 
 	// server routes ===========================================================
 	// handle things like api calls
 	// authentication routes
-	app.get('/search', wordController.searchWords);
-	app.post('/file', wordController.newWords);
-	app.post('/insert', wordController.insertWords);
+	app.get('/search', userCodeController.searchCodes );
+	app.post('/update', userCodeController.updateCodes );
+	app.post('/remove', userCodeController.removeCodes );
 
 	// frontend routes =========================================================
 	// route to handle all angular requests

@@ -1,12 +1,8 @@
 var mongoose = require('mongoose');
-
-var url = 'mongodb://localhost/dic';
-
-// // connect to our mongoDB database (commented out after you enter in your own credentials)
-// var db = mongoose.connect(url);
+var url = 'mongodb://localhost/lpwapp';
 
 module.exports = {
-	url: 'mongodb://localhost/dic',
+	url: 'mongodb://localhost/lpwapp',
 	db: mongoose.connect(url)
 };
 
